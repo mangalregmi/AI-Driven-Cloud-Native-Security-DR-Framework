@@ -30,6 +30,7 @@ The AI-CNDR framework moves away from traditional, reactive legacy disaster reco
        [ STEP 5: IMMUTABLE DATA DATASTORE LAYER ]
      AWS S3 (Object Locked) / Immutable State Backups
 
+![System Architecture Blueprint](system_architecture.png)
 
 ## Component Deep-Dive 
 
