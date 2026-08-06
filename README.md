@@ -3,34 +3,7 @@ AI-driven cloud-native framework merging predictive threat detection with automa
 # Technical Architecture Overview
 The AI-CNDR framework moves away from traditional, reactive legacy disaster recovery (which waits for a system to crash before restoring backups). Instead, it uses a proactive, continuous feedback loop where an AI engine monitors live system behavior, predicts anomalies, and triggers micro-recoveries before a total system failure occurs.
 
- [ STEP 1: LOG & TELEMETRY INGESTION ]
-   Kubernetes Pods / Cloud Microservices / Audit Logs
-                          │
-                          ▼
-       [ STEP 2: REAL-TIME INGESTION LAYER ]
-             Apache Kafka / AWS Kinesis
-                          │
-                          ▼
-       [ STEP 3: THE AI INTELLIGENCE CORE ]
-  ┌──────────────────────────────────────────────────┐
-  │  • Anomaly Detection Engine (Isolation Forests)  │
-  │  • Predictive Blast Radius Calculator (XGBoost)  │
-  └──────────────────────────────────────────────────┘
-                          │
-                ⚠️ Threat/Failure Detected
-                          │
-                          ▼
-       [ STEP 4: UNIFIED ORCHESTRATION ENGINE ]
-  ┌──────────────────────────────────────────────────┐
-  │  • Automated Micro-Isolation (Network Policy)    │
-  │  • Real-time Hot-Standby Failover (DNS/Route53)  │
-  └──────────────────────────────────────────────────┘
-                          │
-                          ▼
-       [ STEP 5: IMMUTABLE DATA DATASTORE LAYER ]
-     AWS S3 (Object Locked) / Immutable State Backups
-
-![System Architecture Blueprint](system_architecture.png)
+![System Architecture Blueprint](System_Architecture.png)
 
 ## Component Deep-Dive 
 
