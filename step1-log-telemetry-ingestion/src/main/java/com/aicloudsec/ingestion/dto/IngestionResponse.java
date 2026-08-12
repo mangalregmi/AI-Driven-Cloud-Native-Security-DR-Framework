@@ -1,4 +1,4 @@
-package com.mangal.ingestion.dto;
+package com.aicloudsec.ingestion.dto;
 
 public record IngestionResponse(
 
