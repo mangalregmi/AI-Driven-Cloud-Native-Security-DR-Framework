@@ -1,0 +1,14 @@
+{
+  "eventId": "evt-1001",
+  "sourceType": "KUBERNETES_POD",
+  "sourceName": "payment-service-7d9f",
+  "severity": "CRITICAL",
+  "message": "Abnormal CPU usage and elevated error rate detected",
+  "metadata": {
+    "cpu_usage": 96,
+    "memory_usage": 88,
+    "latency_ms": 1450,
+    "error_rate": 32,
+    "request_rate": 1100
+  }
+}
