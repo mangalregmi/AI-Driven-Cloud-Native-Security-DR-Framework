@@ -6,10 +6,27 @@ import org.springframework.stereotype.Service;
 @Service
 public class RecoveryDecisionService {
 
-    public String determineAction(AIAnalysisResult result) {
+    public String determineAction(
+            AIAnalysisResult result) {
 
         if (!result.threatDetected()) {
             return "MONITOR";
+        }
+
+        if (result.recommendation() != null) {
+
+            return switch (
+                    result.recommendation()) {
+
+                case "ISOLATE" ->
+                        "ISOLATE";
+
+                case "ISOLATE_AND_FAILOVER" ->
+                        "ISOLATE_AND_FAILOVER";
+
+                default ->
+                        "MONITOR";
+            };
         }
 
         if (result.predictedBlastRadius() >= 70) {
