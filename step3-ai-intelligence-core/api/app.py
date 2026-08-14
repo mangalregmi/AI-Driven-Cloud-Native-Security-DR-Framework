@@ -1,3 +1,4 @@
+from api.orchestration_client import send_to_orchestration
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Dict, Any
@@ -84,10 +85,29 @@ def analyze(event: TelemetryRequest):
     else:
         recommendation = "MONITOR"
 
-    return AIResponse(
+    result = AIResponse(
         eventId=event.eventId,
         threatDetected=threat_detected,
         anomalyScore=risk_score,
         predictedBlastRadius=blast_radius,
         recommendation=recommendation
     )
+
+    try:
+        orchestration_response = send_to_orchestration(
+            result.model_dump()
+        )
+
+        print(
+            "Step 4 orchestration response:",
+            orchestration_response
+        )
+
+    except Exception as exc:
+        print(
+            "Unable to contact Step 4:",
+            str(exc)
+        )
+
+    return result
+    
