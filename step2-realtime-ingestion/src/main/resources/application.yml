@@ -31,3 +31,7 @@ cloud:
   aws:
     kinesis:
       stream-name: security-telemetry-stream
+
+ai:
+  service:
+    url: http://localhost:8083
