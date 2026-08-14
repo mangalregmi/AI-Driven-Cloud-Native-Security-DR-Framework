@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: immutable-datastore-service
+
+server:
+  port: 8085
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+storage:
+  s3:
+    bucket-name: ai-cloud-sec-immutable-recovery
+    retention-days: 30
