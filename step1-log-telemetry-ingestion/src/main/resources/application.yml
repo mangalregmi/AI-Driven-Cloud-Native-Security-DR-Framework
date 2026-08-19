@@ -12,4 +12,4 @@ management:
         include: health,info
 streaming:
   service:
-    url: http://localhost:8082
+    url: ${STREAMING_SERVICE_URL:http://localhost:8082}
