@@ -21,4 +21,4 @@ orchestration:
 
 storage:
   service:
-    url: http://localhost:8085
+    url: ${STORAGE_SERVICE_URL:http://localhost:8085}
