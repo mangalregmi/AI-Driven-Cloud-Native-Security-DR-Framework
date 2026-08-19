@@ -3,6 +3,7 @@ package com.aicloudsec.streaming.config;
 import com.aicloudsec.streaming.model.TelemetryEvent;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -16,15 +17,19 @@ import java.util.Map;
 @Configuration
 public class KafkaConfig {
 
+    @Value("${spring.kafka.bootstrap-servers}")
+    private String bootstrapServers;
+
     @Bean
     public ProducerFactory<String, TelemetryEvent>
     producerFactory() {
 
-        Map<String, Object> config = new HashMap<>();
+        Map<String, Object> config =
+                new HashMap<>();
 
         config.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "localhost:9092"
+                bootstrapServers
         );
 
         config.put(
@@ -37,13 +42,17 @@ public class KafkaConfig {
                 JsonSerializer.class
         );
 
-        return new DefaultKafkaProducerFactory<>(config);
+        return new DefaultKafkaProducerFactory<>(
+                config
+        );
     }
 
     @Bean
     public KafkaTemplate<String, TelemetryEvent>
     kafkaTemplate() {
 
-        return new KafkaTemplate<>(producerFactory());
+        return new KafkaTemplate<>(
+                producerFactory()
+        );
     }
 }
