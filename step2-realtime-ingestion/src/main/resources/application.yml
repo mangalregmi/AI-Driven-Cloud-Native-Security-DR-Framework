@@ -34,4 +34,4 @@ cloud:
 
 ai:
   service:
-    url: http://localhost:8083
+    url: ${AI_SERVICE_URL:http://localhost:8083}
