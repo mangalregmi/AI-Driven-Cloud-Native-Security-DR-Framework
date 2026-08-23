@@ -12,6 +12,7 @@ management:
         include: health,info
 
 orchestration:
+  mode: ${ORCHESTRATION_MODE:simulation}
   kubernetes:
     default-namespace: default
 
