@@ -3,6 +3,7 @@ package com.aicloudsec.orchestration.isolation;
 import io.fabric8.kubernetes.api.model.networking.v1.NetworkPolicy;
 import io.fabric8.kubernetes.api.model.networking.v1.NetworkPolicyBuilder;
 import io.fabric8.kubernetes.client.KubernetesClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -11,6 +12,9 @@ import java.util.Map;
 public class NetworkIsolationService {
 
     private final KubernetesClient kubernetesClient;
+
+    @Value("${orchestration.mode}")
+    private String orchestrationMode;
 
     public NetworkIsolationService(
             KubernetesClient kubernetesClient) {
@@ -22,21 +26,31 @@ public class NetworkIsolationService {
             String namespace,
             String applicationName) {
 
+        if ("simulation".equalsIgnoreCase(orchestrationMode)) {
+
+            System.out.println(
+                    "[SIMULATION] Kubernetes network isolation triggered for: "
+                            + applicationName
+                            + " in namespace: "
+                            + namespace
+            );
+
+            return;
+        }
+
         NetworkPolicy policy =
                 new NetworkPolicyBuilder()
                         .withNewMetadata()
-                            .withName(
-                                "isolate-" + applicationName
-                            )
+                            .withName("isolate-" + applicationName)
                             .withNamespace(namespace)
                         .endMetadata()
                         .withNewSpec()
                             .withNewPodSelector()
                                 .withMatchLabels(
-                                    Map.of(
-                                        "app",
-                                        applicationName
-                                    )
+                                        Map.of(
+                                                "app",
+                                                applicationName
+                                        )
                                 )
                             .endPodSelector()
                         .endSpec()
