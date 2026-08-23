@@ -12,6 +12,7 @@ management:
         include: health,info
 
 storage:
+  mode: ${STORAGE_MODE:simulation}
   s3:
     bucket-name: ai-cloud-sec-immutable-recovery
     retention-days: 30
