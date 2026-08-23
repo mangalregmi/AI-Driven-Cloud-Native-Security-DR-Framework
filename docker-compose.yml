@@ -106,6 +106,7 @@ services:
 
     environment:
       STORAGE_SERVICE_URL: http://step5:8085
+      ORCHESTRATION_MODE: simulation
 
     depends_on:
       step5:
@@ -118,3 +119,5 @@ services:
 
     ports:
       - "8085:8085"
+    environment:
+    STORAGE_MODE: simulation
