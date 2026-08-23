@@ -1,5 +1,6 @@
 package com.aicloudsec.orchestration.failover;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.route53.Route53Client;
 
@@ -7,6 +8,9 @@ import software.amazon.awssdk.services.route53.Route53Client;
 public class Route53FailoverService {
 
     private final Route53Client route53Client;
+
+    @Value("${orchestration.mode}")
+    private String orchestrationMode;
 
     public Route53FailoverService(
             Route53Client route53Client) {
@@ -18,20 +22,24 @@ public class Route53FailoverService {
             String hostedZoneId,
             String domainName) {
 
+        if ("simulation".equalsIgnoreCase(orchestrationMode)) {
+
+            System.out.println(
+                    "[SIMULATION] Route53 hot-standby failover triggered for: "
+                            + domainName
+            );
+
+            return;
+        }
+
         System.out.println(
-                "Triggering Route53 failover for domain: "
+                "Executing Route53 failover for domain: "
                         + domainName
-                        + " in hosted zone: "
-                        + hostedZoneId
         );
 
         /*
-         * Prototype placeholder.
-         *
-         * Later this method will submit an actual
-         * Route53 ChangeResourceRecordSets request
-         * to redirect traffic to the configured
-         * hot-standby environment.
+         * Actual Route53 ChangeResourceRecordSets
+         * implementation can be added for AWS mode.
          */
     }
 }
