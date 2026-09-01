@@ -328,14 +328,13 @@ Planned enhancements include:
 
 ## 🛠️ Technology Stack
 
-| Layer | Technologies |
-| :--- | :--- |
-| **Telemetry Ingestion** | ![Java](https://shields.io) ![Spring Boot](https://shields.io) |
-| **Real-Time Streaming** | ![Apache Kafka](https://shields.io) ![AWS Kinesis](https://shields.io) |
-| **AI Intelligence** | ![Python](https://shields.io) ![FastAPI](https://shields.io) <br> `Isolation Forest` `XGBoost` |
-| **Recovery Orchestration** | ![Kubernetes](https://shields.io) ![AWS](https://shields.io) <br> `Java 21` `Spring Boot` |
-| **Immutable Storage** | ![AWS S3](https://shields.io) <br> `S3 Object Lock` |
-| **Containerization** | ![Docker](https://shields.io) `Docker Compose` |
+* **☕ Telemetry Ingestion:** `Java 21` • `Spring Boot` — Handles high-throughput ingestion.
+* **⚡ Real-Time Streaming:** `Apache Kafka` • `AWS Kinesis` — Distributed message queues.
+* **🧠 AI Intelligence:** `Python` • `FastAPI` • `Isolation Forest` • `XGBoost` — Anomaly detection engine.
+* **☸️ Recovery Orchestration:** `Java 21` • `Spring Boot` • `Kubernetes` • `AWS Route53` — Automated failover.
+* **🪨 Immutable Storage:** `AWS S3` • `S3 Object Lock` — WORM (Write Once, Read Many) compliance.
+* **🐋 Containerization:** `Docker` • `Docker Compose` — Local and cloud deployment isolation.
+
 
 
 ## Disclaimer
