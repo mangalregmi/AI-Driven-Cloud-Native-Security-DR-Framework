@@ -17,17 +17,17 @@ business continuity operations.
 
 The framework follows a five-stage pipeline:
 
+```text
 Telemetry Sources
-↓
+        ↓
 Real-Time Streaming
-↓
+        ↓
 AI Analysis
-↓
+        ↓
 Automated Recovery Orchestration
-↓
+        ↓
 Immutable Recovery Storage
-
----
+```
 
 ## 1. Log and Telemetry Ingestion
 
@@ -70,13 +70,13 @@ support represents the cloud-native streaming path.
 
 ### Event Flow
 
+```text
 TelemetryEvent
-↓
+        ↓
 Apache Kafka / AWS Kinesis
-↓
+        ↓
 AI Intelligence Core
-
----
+```
 
 ## 3. AI Intelligence Core
 
