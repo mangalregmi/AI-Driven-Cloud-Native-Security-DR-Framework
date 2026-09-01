@@ -324,16 +324,6 @@ Planned enhancements include:
 
 ## Technology Stack
 
-Layer	                      Technologies
-Telemetry                   Ingestion	Java, Spring Boot
-Real-Time                   Streaming	Apache Kafka, AWS Kinesis
-AI Intelligence	            Python, FastAPI, Isolation Forest, XGBoost
-Recovery Orchestration	    Java, Spring Boot, Kubernetes, AWS Route53
-Immutable Storage	          AWS S3, S3 Object Lock
-Containerization	          Docker, Docker Compose
-
-## Technology Stack
-
 | Layer | Technologies |
 |---|---|
 | Telemetry Ingestion | Java 21, Spring Boot |
