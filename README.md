@@ -299,18 +299,17 @@ enterprise platforms, and other digitally dependent environments.
 
 ## Current Limitations
 
-This repository represents a research prototype rather than a production-ready
-cybersecurity platform.
+This repository represents a research prototype rather than a production-ready cybersecurity platform.
 
-## Current limitations include:
+Current limitations include:
 
 - Model training uses prototype datasets.
 - Production model validation requires larger operational datasets.
 - Kubernetes isolation requires a configured cluster for live execution.
 - Route53 recovery requires an AWS environment and hosted-zone configuration.
 - S3 Object Lock requires an appropriately configured AWS bucket.
-- Production security controls, authentication, IAM policies, and monitoring
-- require environment-specific implementation.
+- Production security controls, authentication, IAM policies, and monitoring require environment-specific implementation.
+
 
 ## Future Development
 
