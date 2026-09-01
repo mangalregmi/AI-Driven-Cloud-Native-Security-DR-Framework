@@ -1,5 +1,7 @@
 # AI-Driven Cloud-Native Security and Disaster Recovery Framework (AI-CNDR)
 
+## Technical Architecture
+
 ![System Architecture Blueprint](System_Architecture.png)
 
 AI-CNDR is a research-oriented prototype for integrating real-time cloud telemetry,
@@ -10,11 +12,6 @@ The framework is designed to explore how AI-assisted decision support can improv
 the speed, resilience, and consistency of cloud-native disaster recovery and
 business continuity operations.
 
----
-
-## Technical Architecture
-
-![AI-CNDR System Architecture](System_Architecture.png)
 
 The framework follows a five-stage pipeline:
 
