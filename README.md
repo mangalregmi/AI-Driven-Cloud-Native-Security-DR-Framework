@@ -4,6 +4,7 @@
 
 ![AI-CNDR System Architecture](System_Architecture.png)
 
+
 AI-CNDR is a research-oriented prototype for integrating real-time cloud telemetry,
 machine-learning-based anomaly detection, predictive impact assessment, automated
 recovery orchestration, and immutable recovery-state storage.
@@ -12,6 +13,7 @@ The framework is designed to explore how AI-assisted decision support can improv
 the speed, resilience, and consistency of cloud-native disaster recovery and
 business continuity operations.
 
+---
 
 The framework follows a five-stage pipeline:
 
@@ -29,7 +31,7 @@ Immutable Recovery Storage
 
 ## 1. Log and Telemetry Ingestion
 
-## Purpose
+### Purpose
 
 Collects and normalizes operational and security telemetry from sources such as:
 
@@ -42,7 +44,7 @@ Collects and normalizes operational and security telemetry from sources such as:
 Incoming information is converted into a common `TelemetryEvent` format so that
 downstream services can process events consistently.
 
-## Technology
+### Technology
 
 - Java 21
 - Spring Boot
@@ -53,12 +55,12 @@ downstream services can process events consistently.
 
 ## 2. Real-Time Ingestion Layer
 
-## Purpose
+### Purpose
 
 Transports normalized telemetry from the ingestion layer to the AI intelligence
 core using real-time event streaming.
 
-## Supported Technologies
+### Supported Technologies
 
 - Apache Kafka
 - AWS Kinesis
@@ -78,14 +80,14 @@ AI Intelligence Core
 
 ## 3. AI Intelligence Core
 
-## Purpose
+### Purpose
 
 Analyzes incoming telemetry to identify anomalous behavior and estimate the
 potential operational impact of detected incidents.
 
-## Machine Learning Models
+### Machine Learning Models
 
-## Isolation Forest
+#### Isolation Forest
 
 Used for anomaly detection in infrastructure telemetry.
 
@@ -98,20 +100,20 @@ The model evaluates patterns such as:
 - Request volume
 - Severity indicators
 
-## XGBoost
+#### XGBoost
 
 Used as the predictive blast-radius component.
 
 The model is designed to estimate the potential scope and operational impact of
 a detected anomaly so that the recovery engine can select an appropriate response.
 
-## Example AI Decisions
+### Example AI Decisions
 
 - `MONITOR`
 - `ISOLATE`
 - `ISOLATE_AND_FAILOVER`
 
-## Technology
+### Technology
 
 - Python
 - FastAPI
@@ -124,34 +126,34 @@ a detected anomaly so that the recovery engine can select an appropriate respons
 
 ## 4. Unified Orchestration Engine
 
-## Purpose
+### Purpose
 
 Receives AI analysis results and translates them into automated recovery actions.
 
-## Supported Recovery Actions
+### Supported Recovery Actions
 
-## Monitor
+#### Monitor
 
 Continue observing an event when the predicted impact remains below the recovery
 threshold.
 
-## Automated Micro-Isolation
+#### Automated Micro-Isolation
 
 Uses Kubernetes NetworkPolicy-based controls to isolate an affected workload and
 reduce the potential blast radius of an incident.
 
-## Hot-Standby Failover
+#### Hot-Standby Failover
 
 Supports automated failover logic designed to redirect service traffic to a
 standby environment using DNS-based recovery mechanisms such as AWS Route53.
 
-## Simulation Mode
+### Simulation Mode
 
 The current prototype includes a simulation mode that allows orchestration logic
 to be demonstrated without requiring a production Kubernetes cluster or live
 Route53 infrastructure.
 
-## Technology
+### Technology
 
 - Java 21
 - Spring Boot
@@ -164,12 +166,12 @@ Route53 infrastructure.
 
 ## 5. Immutable Datastore Layer
 
-## Purpose
+### Purpose
 
 Preserves recovery-state information and backup artifacts in storage designed to
 resist modification or deletion.
 
-## AWS S3 Object Lock
+### AWS S3 Object Lock
 
 The production-oriented design uses AWS S3 Object Lock to support Write Once,
 Read Many (WORM) retention policies.
@@ -181,12 +183,12 @@ This approach can help protect recovery information from:
 - Ransomware-related encryption
 - Recovery-state tampering
 
-## Simulation Mode
+### Simulation Mode
 
 The prototype can demonstrate immutable-storage workflows without requiring a
 live AWS S3 Object Lock bucket.
 
-## Technology
+### Technology
 
 - Java 21
 - Spring Boot
@@ -196,7 +198,7 @@ live AWS S3 Object Lock bucket.
 
 ---
 
-## End-to-End Processing Flow
+# End-to-End Processing Flow
 
 A typical security event follows this sequence:
 
@@ -209,29 +211,25 @@ A typical security event follows this sequence:
 7. The affected workload can be monitored, isolated, or failed over.
 8. Step 5 records the resulting recovery state in immutable storage.
 
-### Example Recovery Flow
+Example:
 
-```text
-CRITICAL Telemetry
-        ↓
-Anomaly Detected
-        ↓
-Blast Radius Estimated
-        ↓
+CRITICAL telemetry
+↓
+Anomaly detected
+↓
+Blast radius estimated
+↓
 ISOLATE_AND_FAILOVER
-        ↓
-Kubernetes Isolation
-        ↓
-Hot-Standby Failover
-        ↓
-Immutable Recovery-State Backup
-```
+↓
+Kubernetes isolation
+↓
+Hot-standby failover
+↓
+Immutable recovery-state backup
 
 ---
 
-## Repository Structure
-
-The repository is organized to mirror the five-stage AI-CNDR architecture:
+# Repository Structure
 
 ```text
 AI-Driven-Cloud-Native-Security-DR-Framework/
@@ -241,17 +239,12 @@ AI-Driven-Cloud-Native-Security-DR-Framework/
 ├── step3-ai-intelligence-core/
 ├── step4-unified-orchestration-engine/
 ├── step5-immutable-datastore/
-│
 ├── kubernetes/
 ├── docker/
 ├── config/
 ├── sample-data/
 ├── docs/
-│
 └── docker-compose.yml
-```
-
----
 
 
 ## Prototype Status
