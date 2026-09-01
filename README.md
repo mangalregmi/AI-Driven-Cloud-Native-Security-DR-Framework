@@ -66,7 +66,7 @@ core using real-time event streaming.
 Kafka is used as the primary prototype streaming mechanism, while AWS Kinesis
 support represents the cloud-native streaming path.
 
-## Event Flow
+### Event Flow
 
 TelemetryEvent
 ↓
