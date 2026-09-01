@@ -4,6 +4,8 @@
 
 ![System Architecture Blueprint](System_Architecture.png)
 
+![AI-CNDR System Architecture](System_Architecture.png)
+
 AI-CNDR is a research-oriented prototype for integrating real-time cloud telemetry,
 machine-learning-based anomaly detection, predictive impact assessment, automated
 recovery orchestration, and immutable recovery-state storage.
