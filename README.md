@@ -209,25 +209,31 @@ A typical security event follows this sequence:
 7. The affected workload can be monitored, isolated, or failed over.
 8. Step 5 records the resulting recovery state in immutable storage.
 
-Example:
+### Example Recovery Flow
 
-CRITICAL telemetry
-↓
-Anomaly detected
-↓
-Blast radius estimated
-↓
+```text
+CRITICAL Telemetry
+        ↓
+Anomaly Detected
+        ↓
+Blast Radius Estimated
+        ↓
 ISOLATE_AND_FAILOVER
-↓
-Kubernetes isolation
-↓
-Hot-standby failover
-↓
-Immutable recovery-state backup
+        ↓
+Kubernetes Isolation
+        ↓
+Hot-Standby Failover
+        ↓
+Immutable Recovery-State Backup
+```
 
+---
 
 ## Repository Structure
 
+The repository is organized to mirror the five-stage AI-CNDR architecture:
+
+```text
 AI-Driven-Cloud-Native-Security-DR-Framework/
 │
 ├── step1-log-telemetry-ingestion/
@@ -235,12 +241,18 @@ AI-Driven-Cloud-Native-Security-DR-Framework/
 ├── step3-ai-intelligence-core/
 ├── step4-unified-orchestration-engine/
 ├── step5-immutable-datastore/
+│
 ├── kubernetes/
 ├── docker/
 ├── config/
 ├── sample-data/
 ├── docs/
+│
 └── docker-compose.yml
+```
+
+---
+
 
 ## Prototype Status
 
