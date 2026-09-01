@@ -326,18 +326,17 @@ Planned enhancements include:
 - Automated integration testing
 - Multi-region recovery testing
 
-## Technology Stack
+## 🛠️ Technology Stack
 
 | Layer | Technologies |
-|---|---|
-| Telemetry Ingestion | Java 21, Spring Boot |
-| Real-Time Streaming | Apache Kafka, AWS Kinesis |
-| AI Intelligence | Python, FastAPI, Isolation Forest, XGBoost |
-| Recovery Orchestration | Java 21, Spring Boot, Kubernetes, AWS Route53 |
-| Immutable Storage | AWS S3, S3 Object Lock |
-| Containerization | Docker, Docker Compose |
+| :--- | :--- |
+| **Telemetry Ingestion** | ![Java](https://shields.io) ![Spring Boot](https://shields.io) |
+| **Real-Time Streaming** | ![Apache Kafka](https://shields.io) ![AWS Kinesis](https://shields.io) |
+| **AI Intelligence** | ![Python](https://shields.io) ![FastAPI](https://shields.io) <br> `Isolation Forest` `XGBoost` |
+| **Recovery Orchestration** | ![Kubernetes](https://shields.io) ![AWS](https://shields.io) <br> `Java 21` `Spring Boot` |
+| **Immutable Storage** | ![AWS S3](https://shields.io) <br> `S3 Object Lock` |
+| **Containerization** | ![Docker](https://shields.io) `Docker Compose` |
 
----
 
 ## Disclaimer
 
