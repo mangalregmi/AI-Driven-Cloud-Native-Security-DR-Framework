@@ -2,8 +2,6 @@
 
 ## Technical Architecture
 
-![System Architecture Blueprint](System_Architecture.png)
-
 ![AI-CNDR System Architecture](System_Architecture.png)
 
 AI-CNDR is a research-oriented prototype for integrating real-time cloud telemetry,
