@@ -1,4 +1,4 @@
-# AI-Driven Cloud-Native Security and Disaster Recovery Framework (AI-CNDR)
+## AI-Driven Cloud-Native Security and Disaster Recovery Framework (AI-CNDR)
 
 ## Technical Architecture
 
@@ -29,7 +29,7 @@ Immutable Recovery Storage
 
 ## 1. Log and Telemetry Ingestion
 
-### Purpose
+## Purpose
 
 Collects and normalizes operational and security telemetry from sources such as:
 
@@ -42,7 +42,7 @@ Collects and normalizes operational and security telemetry from sources such as:
 Incoming information is converted into a common `TelemetryEvent` format so that
 downstream services can process events consistently.
 
-### Technology
+## Technology
 
 - Java 21
 - Spring Boot
@@ -53,12 +53,12 @@ downstream services can process events consistently.
 
 ## 2. Real-Time Ingestion Layer
 
-### Purpose
+## Purpose
 
 Transports normalized telemetry from the ingestion layer to the AI intelligence
 core using real-time event streaming.
 
-### Supported Technologies
+## Supported Technologies
 
 - Apache Kafka
 - AWS Kinesis
@@ -66,7 +66,7 @@ core using real-time event streaming.
 Kafka is used as the primary prototype streaming mechanism, while AWS Kinesis
 support represents the cloud-native streaming path.
 
-### Event Flow
+## Event Flow
 
 TelemetryEvent
 ↓
@@ -78,14 +78,14 @@ AI Intelligence Core
 
 ## 3. AI Intelligence Core
 
-### Purpose
+## Purpose
 
 Analyzes incoming telemetry to identify anomalous behavior and estimate the
 potential operational impact of detected incidents.
 
-### Machine Learning Models
+## Machine Learning Models
 
-#### Isolation Forest
+## Isolation Forest
 
 Used for anomaly detection in infrastructure telemetry.
 
@@ -98,20 +98,20 @@ The model evaluates patterns such as:
 - Request volume
 - Severity indicators
 
-#### XGBoost
+## XGBoost
 
 Used as the predictive blast-radius component.
 
 The model is designed to estimate the potential scope and operational impact of
 a detected anomaly so that the recovery engine can select an appropriate response.
 
-### Example AI Decisions
+## Example AI Decisions
 
 - `MONITOR`
 - `ISOLATE`
 - `ISOLATE_AND_FAILOVER`
 
-### Technology
+## Technology
 
 - Python
 - FastAPI
@@ -124,34 +124,34 @@ a detected anomaly so that the recovery engine can select an appropriate respons
 
 ## 4. Unified Orchestration Engine
 
-### Purpose
+## Purpose
 
 Receives AI analysis results and translates them into automated recovery actions.
 
-### Supported Recovery Actions
+## Supported Recovery Actions
 
-#### Monitor
+## Monitor
 
 Continue observing an event when the predicted impact remains below the recovery
 threshold.
 
-#### Automated Micro-Isolation
+## Automated Micro-Isolation
 
 Uses Kubernetes NetworkPolicy-based controls to isolate an affected workload and
 reduce the potential blast radius of an incident.
 
-#### Hot-Standby Failover
+## Hot-Standby Failover
 
 Supports automated failover logic designed to redirect service traffic to a
 standby environment using DNS-based recovery mechanisms such as AWS Route53.
 
-### Simulation Mode
+## Simulation Mode
 
 The current prototype includes a simulation mode that allows orchestration logic
 to be demonstrated without requiring a production Kubernetes cluster or live
 Route53 infrastructure.
 
-### Technology
+## Technology
 
 - Java 21
 - Spring Boot
@@ -164,12 +164,12 @@ Route53 infrastructure.
 
 ## 5. Immutable Datastore Layer
 
-### Purpose
+## Purpose
 
 Preserves recovery-state information and backup artifacts in storage designed to
 resist modification or deletion.
 
-### AWS S3 Object Lock
+## AWS S3 Object Lock
 
 The production-oriented design uses AWS S3 Object Lock to support Write Once,
 Read Many (WORM) retention policies.
@@ -181,12 +181,12 @@ This approach can help protect recovery information from:
 - Ransomware-related encryption
 - Recovery-state tampering
 
-### Simulation Mode
+## Simulation Mode
 
 The prototype can demonstrate immutable-storage workflows without requiring a
 live AWS S3 Object Lock bucket.
 
-### Technology
+## Technology
 
 - Java 21
 - Spring Boot
@@ -196,7 +196,7 @@ live AWS S3 Object Lock bucket.
 
 ---
 
-# End-to-End Processing Flow
+## End-to-End Processing Flow
 
 A typical security event follows this sequence:
 
@@ -225,11 +225,9 @@ Hot-standby failover
 ↓
 Immutable recovery-state backup
 
----
 
-# Repository Structure
+## Repository Structure
 
-```text
 AI-Driven-Cloud-Native-Security-DR-Framework/
 │
 ├── step1-log-telemetry-ingestion/
@@ -244,43 +242,43 @@ AI-Driven-Cloud-Native-Security-DR-Framework/
 ├── docs/
 └── docker-compose.yml
 
-Prototype Status
+## Prototype Status
 
-# AI-CNDR is currently an engineering and research prototype
+## AI-CNDR is currently an engineering and research prototype
 
 Implemented components include:
 
-Modular five-layer architecture
-Telemetry normalization
-Kafka event streaming
-AWS Kinesis integration path
-Isolation Forest anomaly-detection implementation
-XGBoost predictive-impact implementation
-AI-to-orchestration integration
-Recovery decision logic
-Kubernetes micro-isolation implementation
-Route53 failover integration structure
-Immutable recovery-state storage
-AWS S3 Object Lock integration structure
-Dockerized service architecture
-Simulation mode for infrastructure-dependent recovery operations
+- Modular five-layer architecture
+- Telemetry normalization
+- Kafka event streaming
+- AWS Kinesis integration path
+- Isolation Forest anomaly-detection implementation
+- XGBoost predictive-impact implementation
+- AI-to-orchestration integration
+- Recovery decision logic
+- Kubernetes micro-isolation implementation
+- Route53 failover integration structure
+- Immutable recovery-state storage
+- AWS S3 Object Lock integration structure
+- Dockerized service architecture
+- Simulation mode for infrastructure-dependent recovery operations
 
-# Design Goals
+## Design Goals
 
 The framework is designed around four primary objectives:
 
-Earlier threat awareness
+1. **Earlier threat awareness** 
 Detect unusual infrastructure behavior before it develops into a larger
 operational disruption.
-Reduced recovery decision latency
+2. **Reduced recovery decision latency** 
 Use AI-assisted analysis to support faster recovery decisions.
-Reduced blast radius
+3. **Reduced blast radius**
 Isolate compromised workloads before disruption spreads across dependent
 services.
-Resilient recovery-state preservation
+4. **Resilient recovery-state preservation**
 Protect recovery information using immutable-storage mechanisms.
 
-# Research and Practical Relevance
+## Research and Practical Relevance
 
 Cloud-based disaster recovery traditionally relies heavily on predefined recovery
 procedures and human intervention.
@@ -294,46 +292,58 @@ where service availability, cybersecurity, and rapid recovery are important,
 including financial services, healthcare technology, government systems,
 enterprise platforms, and other digitally dependent environments.
 
-Current Limitations
+## Current Limitations
 
 This repository represents a research prototype rather than a production-ready
 cybersecurity platform.
 
-# Current limitations include:
+## Current limitations include:
 
-Model training uses prototype datasets.
-Production model validation requires larger operational datasets.
-Kubernetes isolation requires a configured cluster for live execution.
-Route53 recovery requires an AWS environment and hosted-zone configuration.
-S3 Object Lock requires an appropriately configured AWS bucket.
-Production security controls, authentication, IAM policies, and monitoring
-require environment-specific implementation.
+- Model training uses prototype datasets.
+- Production model validation requires larger operational datasets.
+- Kubernetes isolation requires a configured cluster for live execution.
+- Route53 recovery requires an AWS environment and hosted-zone configuration.
+- S3 Object Lock requires an appropriately configured AWS bucket.
+- Production security controls, authentication, IAM policies, and monitoring
+- require environment-specific implementation.
 
-# Future Development
+## Future Development
 
 Planned enhancements include:
 
-Larger telemetry datasets for AI model training
-Model accuracy and performance evaluation
-Prometheus monitoring
-Grafana visualization
-Kubernetes deployment manifests
-Infrastructure-as-Code using Terraform
-GitHub Actions CI/CD
-IAM least-privilege policies
-Automated integration testing
-Multi-region recovery testing
+- Larger telemetry datasets for AI model training
+- Model accuracy and performance evaluation
+- Prometheus monitoring
+- Grafana visualization
+- Kubernetes deployment manifests
+- Infrastructure-as-Code using Terraform
+- GitHub Actions CI/CD
+- IAM least-privilege policies
+- Automated integration testing
+- Multi-region recovery testing
 
-# Technology Stack
+## Technology Stack
+
 Layer	                      Technologies
 Telemetry                   Ingestion	Java, Spring Boot
 Real-Time                   Streaming	Apache Kafka, AWS Kinesis
 AI Intelligence	            Python, FastAPI, Isolation Forest, XGBoost
-Recovery Orchestration	     Java, Spring Boot, Kubernetes, AWS Route53
+Recovery Orchestration	    Java, Spring Boot, Kubernetes, AWS Route53
 Immutable Storage	          AWS S3, S3 Object Lock
-Containerization	           Docker, Docker Compose
+Containerization	          Docker, Docker Compose
 
-# Disclaimer
+## Technology Stack
+
+| Layer | Technologies |
+|---|---|
+| Telemetry Ingestion | Java 21, Spring Boot |
+| Real-Time Streaming | Apache Kafka, AWS Kinesis |
+| AI Intelligence | Python, FastAPI, Isolation Forest, XGBoost |
+| Recovery Orchestration | Java 21, Spring Boot, Kubernetes, AWS Route53 |
+| Immutable Storage | AWS S3, S3 Object Lock |
+| Containerization | Docker, Docker Compose |
+
+## Disclaimer
 
 AI-CNDR is a research and engineering prototype intended to demonstrate an
 architecture for AI-assisted cloud security and disaster recovery. Infrastructure
