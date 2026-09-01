@@ -246,6 +246,7 @@ AI-Driven-Cloud-Native-Security-DR-Framework/
 ├── docs/
 └── docker-compose.yml
 
+```
 
 ## Prototype Status
 
@@ -326,15 +327,16 @@ Planned enhancements include:
 - Automated integration testing
 - Multi-region recovery testing
 
-## 🛠️ Technology Stack
+## Technology Stack
 
-* **☕ Telemetry Ingestion:** `Java 21` • `Spring Boot` — Handles high-throughput ingestion.
-* **⚡ Real-Time Streaming:** `Apache Kafka` • `AWS Kinesis` — Distributed message queues.
-* **🧠 AI Intelligence:** `Python` • `FastAPI` • `Isolation Forest` • `XGBoost` — Anomaly detection engine.
-* **☸️ Recovery Orchestration:** `Java 21` • `Spring Boot` • `Kubernetes` • `AWS Route53` — Automated failover.
-* **🪨 Immutable Storage:** `AWS S3` • `S3 Object Lock` — WORM (Write Once, Read Many) compliance.
-* **🐋 Containerization:** `Docker` • `Docker Compose` — Local and cloud deployment isolation.
-
+| Layer | Technologies |
+|---|---|
+| Telemetry Ingestion | Java 21, Spring Boot |
+| Real-Time Streaming | Apache Kafka, AWS Kinesis |
+| AI Intelligence | Python, FastAPI, Isolation Forest, XGBoost |
+| Recovery Orchestration | Java 21, Spring Boot, Kubernetes, AWS Route53 |
+| Immutable Storage | AWS S3, S3 Object Lock |
+| Containerization | Docker, Docker Compose |
 
 
 ## Disclaimer
