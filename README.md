@@ -345,4 +345,3 @@ AI-CNDR is a research and engineering prototype intended to demonstrate an
 architecture for AI-assisted cloud security and disaster recovery. Infrastructure
 automation should be thoroughly tested and appropriately secured before use in
 production environments.
-
