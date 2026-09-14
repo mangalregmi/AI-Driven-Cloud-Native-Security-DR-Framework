@@ -8,7 +8,6 @@ app = FastAPI(
     version="1.0.0"
 )
 
-
 class TelemetryRequest(BaseModel):
     eventId: str
     sourceType: str
@@ -17,14 +16,12 @@ class TelemetryRequest(BaseModel):
     message: str
     metadata: Dict[str, Any] = {}
 
-
 class AIResponse(BaseModel):
     eventId: str
     threatDetected: bool
     anomalyScore: float
     predictedBlastRadius: float
     recommendation: str
-
 
 def severity_score(value: str):
     mapping = {
