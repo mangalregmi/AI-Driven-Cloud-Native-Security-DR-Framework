@@ -6,7 +6,6 @@ ORCHESTRATION_URL = os.getenv(
     "http://localhost:8084"
 )
 
-
 def send_to_orchestration(result: dict):
     url = (
         ORCHESTRATION_URL
