@@ -17,7 +17,7 @@ public class KafkaTelemetryConsumer {
         this.aiIntelligenceClient =
                 aiIntelligenceClient;
     }
-
+    
     @KafkaListener(
             topics = "security-telemetry",
             groupId = "ai-intelligence-group"
