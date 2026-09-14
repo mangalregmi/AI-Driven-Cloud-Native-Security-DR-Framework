@@ -17,11 +17,10 @@ public class StreamingController {
 
         this.streamingService = streamingService;
     }
-
+     
     @PostMapping("/kafka")
     public ResponseEntity<StreamingResponse>
-    publishToKafka(
-            @RequestBody TelemetryEvent event) {
+    publishToKafka(@RequestBody TelemetryEvent event) {
 
         streamingService.streamToKafka(event);
 
