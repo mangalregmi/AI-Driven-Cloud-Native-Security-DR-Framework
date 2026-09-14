@@ -2,7 +2,6 @@ import os
 import joblib
 import numpy as np
 
-
 class IsolationForestEngine:
 
     def __init__(self, model_path=None):
