@@ -16,7 +16,7 @@ public class KafkaTelemetryProducer {
 
         this.kafkaTemplate = kafkaTemplate;
     }
-
+ 
     public void publish(TelemetryEvent event) {
 
         kafkaTemplate.send(
