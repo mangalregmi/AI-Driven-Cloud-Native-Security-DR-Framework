@@ -116,6 +116,5 @@ def test_high_risk_telemetry_inference():
     blast_radius = blast_result[
         "predicted_blast_radius"
     ]
-
     assert blast_radius >= 0
     assert blast_radius <= 100
