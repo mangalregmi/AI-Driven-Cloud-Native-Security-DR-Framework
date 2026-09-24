@@ -10,6 +10,12 @@ RUN pip install \
 
 COPY . .
 
+# Train the prototype AI models during image creation.
+# The generated model artifacts are then available
+# to the FastAPI inference service at runtime.
+RUN python anomaly-detection/train_isolation_forest.py && \
+    python blast-radius-prediction/train_xgboost.py
+
 EXPOSE 8083
 
 CMD [
