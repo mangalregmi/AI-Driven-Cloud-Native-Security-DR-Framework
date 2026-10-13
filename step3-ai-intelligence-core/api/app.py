@@ -107,7 +107,35 @@ def health():
         }
     }
 
+@app.get("/ready")
+def readiness():
+    """
+    Readiness probe used by container orchestration platforms
+    to determine whether the AI service is ready to process
+    telemetry events.
+    """
 
+    models_ready = (
+        anomaly_engine is not None
+        and blast_radius_predictor is not None
+    )
+
+    if not models_ready:
+        raise HTTPException(
+            status_code=503,
+            detail="AI models are not ready"
+        )
+
+    return {
+        "status": "READY",
+        "service": "AI Intelligence Core",
+        "components": {
+            "anomalyDetection": "READY",
+            "blastRadiusPrediction": "READY",
+            "featureEngineering": "READY"
+        }
+    }
+    
 # ---------------------------------------------------------
 # AI inference endpoint
 # ---------------------------------------------------------
