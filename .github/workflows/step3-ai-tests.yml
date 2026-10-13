@@ -1,0 +1,49 @@
+name: Step 3 AI Model Tests
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "step3-ai-intelligence-core/**"
+      - ".github/workflows/step3-ai-tests.yml"
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "step3-ai-intelligence-core/**"
+      - ".github/workflows/step3-ai-tests.yml"
+
+jobs:
+  test-ai-intelligence-core:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: step3-ai-intelligence-core
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: step3-ai-intelligence-core/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Train Isolation Forest model
+        run: python anomaly-detection/train_isolation_forest.py
+
+      - name: Train XGBoost blast-radius model
+        run: python blast-radius-prediction/train_xgboost.py
+
+      - name: Run AI model tests
+        run: pytest tests -v
