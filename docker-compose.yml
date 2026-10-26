@@ -120,4 +120,4 @@ services:
     ports:
       - "8085:8085"
     environment:
-    STORAGE_MODE: simulation
+      STORAGE_MODE: simulation
