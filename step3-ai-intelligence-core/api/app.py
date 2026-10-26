@@ -8,10 +8,10 @@ from pydantic import BaseModel, Field
 from api.orchestration_client import send_to_orchestration
 
 
-# ---------------------------------------------------------
+# -----------------------------------------------------
 # Make Step 3 model/feature directories importable.
 # Directory names are kept aligned with the architecture.
-# ---------------------------------------------------------
+# ------------------------------------------------------
 
 BASE_DIR = os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))
